@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GÜNEŞ TUTULMASI</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <style media="screen">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 800px;
+            background-color: #45B5DA;
+            transition: 260ms;
+        }
+
+        .gunes {
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+            background-color: #FFFF77;
+            box-shadow: 0 0 70px #FFFF77;
+            margin-left: 400px;
+            margin-top: 200px;
+        }
+
+        .ay {
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+            background-color: #61B8D1;
+            box-shadow: inset 0 0 30px 0 #FFFF77;
+            top: 300px;
+        }
+
+     
+       
+    </style>
+</head>
+<body>
+    <div class="ay"></div>
+    <div class="gunes"></div>
+    <<!-- Bulutları ekranın üst tarafına taşımak için margin-top ekleyin -->
+   <div class="bulut" style="margin-top: -50px;"></div>
+    <div class="bulut bulut2" style="margin-top: -50px;"></div>
+
+    <script>
+        $(function () {
+            $(".ay").draggable({
+                drag: function (event, ui) {
+                    var sol = ui.position.left;
+                    var ust = ui.position.top;
+
+                    if (sol > 200 && sol < 600 && ust > 200 && ust < 600) {
+                        if ((sol > 200 && sol < 225) || (sol < 600 && sol > 575)) {
+                            $("body").css("background-color", "#3aa2c4");
+                        } else if ((sol > 225 && sol < 250) || (sol < 575 && sol > 550)) {
+                            $("body").css("background-color", "#348fad");
+                        } else if ((sol > 250 && sol < 275) || (sol < 550 && sol > 525)) {
+                            $("body").css("background-color", "#286f87");
+                            $(".ay").css("background-color", "#529baf");
+                        } else if ((sol > 275 && sol < 300) || (sol < 525 && sol > 500)) {
+                            $("body").css("background-color", "#215d72");
+                            $(".ay").css("background-color", "#468799");
+                        } else if ((sol > 300 && sol < 325) || (sol < 500 && sol > 475)) {
+                            $("body").css("background-color", "#352172");
+                            $(".ay").css("background-color", "#3b7687");
+                        } else if ((sol > 325 && sol < 350) || (sol < 475 && sol > 450)) {
+                            $("body").css("background-color", "#2d1b63");
+                            $(".ay").css("background-color", "#2f6170");
+                        } else if ((sol > 350 && sol < 375) || (sol < 450 && sol > 425)) {
+                            $("body").css("background-color", "#21134c");
+                            $(".ay").css("background-color", "#264f5b");
+                        } else if ((sol > 375 && sol < 385) || (sol < 425 && sol > 415)) {
+                            $("body").css("background-color", "#2F0921");
+                            $(".ay").css("background-color", "#1b3b44");
+                        } else if ((sol > 385 && sol < 400) || (sol < 415 && sol > 400)) {
+                            $("body").css("background-color", "#000");
+                            $(".ay").css("background-color", "#0d1e23");
+                        } else {
+                            $("body").css("background-color", "#45B5DA");
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
